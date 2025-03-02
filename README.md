@@ -1,6 +1,21 @@
 # 基于 SimHash 与 BERT 的高校学生作业查重系统
 
-​	该项目旨在通过结合 **SimHash** 算法与 **BERT-Base-Chinese** 模型，实现对高校学生作业的智能查重，支持文件批量处理与历史作业比对，自动生成查重结果的 Excel 报告。系统基于 Spring Boot 构建，采用 MySQL 存储数据，并集成多种第三方工具（如 EasyExcel、HanLP、Apache POI 等）实现文件解析、文本分词、相似度计算以及结果输出。
+​	该项目旨在通过结合 **SimHash** 算法与 **BERT-Base-Chinese** 模型，实现对高校学生作业的智能查重，支持文件批量处理与历史作业比对，自动生成查重结果的 Excel 报告。系统后端基于 Spring Boot 构建，采用 MySQL 存储数据，并集成多种第三方工具（如 EasyExcel、HanLP、Apache POI 等）实现文件解析、文本分词、相似度计算以及结果输出；系统前端基于 Vue3、Pinia、Element Plus、Axios、Vite、Sass 等前端框架实现交互与展示。
+
+## 项目地址 
+### 前端项目
+
+- **Gitee**: [BERT-SimHashHomeworkCheck-Frontend (Gitee)](https://gitee.com/yourusername/BERT-SimHashHomeworkCheck-Frontend)
+- **GitHub**: [BERT-SimHashHomeworkCheck-Frontend (GitHub)](https://github.com/linyshdhhcb/BERT-SimHashHomeworkCheck-Frontend)
+
+### 后端项目
+
+- **Gitee**: [BERT-SimHashHomeworkCheck-Backend (Gitee)](https://gitee.com/hsdchb/bert-sim-hash-homework-check)
+- **GitHub**: [BERT-SimHashHomeworkCheck-Backend (GitHub)](https://github.com/yourusername/BERT-SimHashHomeworkCheck-Backend)
+
+---
+
+### 
 
 ## 项目特点
 
@@ -14,11 +29,83 @@
 4. **高性能与并发处理：**
 	项目依赖 Guava 等多线程支持库，实现高效的并发处理，适用于大批量文件的查重任务。
 
-## 系统架构
+## 项目启动
+### 前端
+---
+
+#### 安装与运行
+
+确保已安装 Node.js（我使用的是：v18.20.5版本） 和 npm/yarn，然后执行以下命令安装项目依赖：
+
+```bash
+npm install
+# 或
+yarn install
+```
+启动本地开发服务器：
+```bash
+npm run dev
+# 或
+yarn dev
+```
+默认访问地址：http://localhost:5137
+
+构建生产环境代码：
+```bash
+npm run build
+# 或
+yarn build
+```
+在构建完成后，可以使用以下命令预览生产环境：
+```bash
+npm run preview
+# 或
+yarn preview
+```
+#### 效果
+
+![首页](/img/p1.png)
+
+![作业查重](/img/p2.png)
+
+![历史作业](/img/p3.png)
+
+**生成Excel路径不填默认生成在文件夹路径。**
 
 ### 后端
 
-项目整体采用 **Spring Boot** 框架，主要模块包括：
+---
+#### 安装与运行
+
+先运行sql文件：
+
+![sql](/img/p4.png)
+
+修改.yml的数据库配置：
+
+![mysql](/img/p6.png)
+
+下载BERT模型：
+
+因为文件过大，不能上传仓库，因此需要你自己现在模型，安装下面步骤进行：
+
+![bert](/img/p7.png)
+
+Hugging Face下载网址：[Hugging Face](https://huggingface.co/)
+
+步骤一：
+
+![1](/img/p8.png)
+
+步骤二：
+
+![2](/img/p9.png)
+
+最后将下载好的**pytorch_model.bin**放入Bert-Base-Chinese文件夹下。
+
+## 系统架构
+
+项目后端采用 **Spring Boot** 框架，前端采用 **Vue3** 主要模块包括：
 
 - **文件解析模块：**
 	利用 Apache PDFBox、Jsoup 等工具解析 PDF、HTML、TXT 等格式文件，提取文本内容。
@@ -32,6 +119,20 @@
 	通过 EasyExcel 将查重结果生成标准 Excel 文件，方便用户查阅与统计。
 
 ### 环境依赖与构建
+
+### 前端
+
+| 技术名称      | 版本       | 描述                                                         |
+| ------------- | ---------- | ------------------------------------------------------------ |
+| **框架**      | Vue 3      | 基于组件的现代化前端框架，支持组合式 API 和响应式系统。     |
+| **状态管理**  | Pinia      | 轻量级、模块化的状态管理库，专为 Vue 3 设计，提供更好的开发体验。|
+| **路由管理**  | Vue Router | 提供动态路由和视图切换功能，支持嵌套路由和导航守卫。        |
+| **UI 组件库** | Element Plus | 基于 Vue 3 的 UI 组件库，提供丰富的组件和主题定制选项。     |
+| **HTTP 请求** | Axios      | 基于 Promise 的 HTTP 客户端，支持浏览器和 Node.js 环境，用于与后端进行数据交互。 |
+| **开发工具**  | Vite       | 新一代前端构建工具，快速冷启动和热更新，优化开发体验。       |
+|               | ESLint     | 代码检查工具，帮助开发者遵循一致的代码风格并发现潜在问题。   |
+|               | Sass       | 强大的 CSS 预处理器，支持变量、嵌套、混合等功能，提升样式编写效率。 |
+
 
 项目基于 Maven 构建，主要依赖如下（具体版本请参考 `pom.xml`）：
 
@@ -60,11 +161,6 @@
 | **MyBatis Plus **                         | 3.5.8-001      | 集成 MyBatis Plus，实现简化数据库 CRUD 操作及增强 SQL 功能   |
 | **Fastjson**                              | 2.0.21         | 高性能 JSON 处理库，实现对象与 JSON 数据间的快速转换         |
 | **Lombok**                                | （自动配置）   | 通过注解减少样板代码，提高开发效率，自动生成 getter、setter 等方法 |
-
-### 前端
-
-
-
 
 
 ## 数据库设计
