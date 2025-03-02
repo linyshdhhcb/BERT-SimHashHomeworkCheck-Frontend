@@ -5,13 +5,13 @@
 ## 项目地址 
 ### 前端项目
 
-- **Gitee**: [BERT-SimHashHomeworkCheck-Frontend (Gitee)](https://gitee.com/yourusername/BERT-SimHashHomeworkCheck-Frontend)
+- **Gitee**: [BERT-SimHashHomeworkCheck-Frontend (Gitee)](https://gitee.com/hsdchb/BERT-SimHashHomeworkCheck-Frontend)
 - **GitHub**: [BERT-SimHashHomeworkCheck-Frontend (GitHub)](https://github.com/linyshdhhcb/BERT-SimHashHomeworkCheck-Frontend)
 
 ### 后端项目
 
-- **Gitee**: [BERT-SimHashHomeworkCheck-Backend (Gitee)](https://gitee.com/hsdchb/bert-sim-hash-homework-check)
-- **GitHub**: [BERT-SimHashHomeworkCheck-Backend (GitHub)](https://github.com/yourusername/BERT-SimHashHomeworkCheck-Backend)
+- **Gitee**: [BERT-SimHashHomeworkCheck-Backend (Gitee)](https://gitee.com/hsdchb/BERT-SimHashHomeworkCheck-Backend)
+- **GitHub**: [BERT-SimHashHomeworkCheck-Backend (GitHub)](https://github.com/linyshdhhcb/BERT-SimHashHomeworkCheck-Backend)
 
 ---
 
